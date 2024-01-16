@@ -11,7 +11,9 @@ namespace WebsiteBanHang.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class SanPham
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +23,7 @@ namespace WebsiteBanHang.Models
             this.ChiTietDonDatHangs = new HashSet<ChiTietDonDatHang>();
             this.ChiTietPhieuNhaps = new HashSet<ChiTietPhieuNhap>();
         }
-    
+        [Key]
         public int MaSP { get; set; }
         public string TenSP { get; set; }
         public Nullable<decimal> DonGia { get; set; }
@@ -50,8 +52,11 @@ namespace WebsiteBanHang.Models
         public virtual ICollection<ChiTietDonDatHang> ChiTietDonDatHangs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietPhieuNhap> ChiTietPhieuNhaps { get; set; }
+        [ForeignKey("MaLoaiSP")]
         public virtual LoaiSanPham LoaiSanPham { get; set; }
+        [ForeignKey("MaNCC")]
         public virtual NhaCungCap NhaCungCap { get; set; }
+        [ForeignKey("MaNSX")]
         public virtual NhaSanXuat NhaSanXuat { get; set; }
     }
 }

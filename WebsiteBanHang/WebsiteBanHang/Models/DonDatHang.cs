@@ -11,7 +11,8 @@ namespace WebsiteBanHang.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class DonDatHang
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,8 @@ namespace WebsiteBanHang.Models
         {
             this.ChiTietDonDatHangs = new HashSet<ChiTietDonDatHang>();
         }
-    
+
+        [Key]
         public int MaDDH { get; set; }
         public Nullable<System.DateTime> NgayDat { get; set; }
         public Nullable<bool> TinhTrangGiaoHang { get; set; }

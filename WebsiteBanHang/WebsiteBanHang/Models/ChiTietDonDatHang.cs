@@ -11,9 +11,11 @@ namespace WebsiteBanHang.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class ChiTietDonDatHang
     {
+        [Key]
         public int MaChiTietDDh { get; set; }
         public Nullable<int> MaDDH { get; set; }
         public Nullable<int> MaSP { get; set; }

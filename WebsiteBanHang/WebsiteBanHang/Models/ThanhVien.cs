@@ -11,7 +11,8 @@ namespace WebsiteBanHang.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class ThanhVien
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,7 +21,7 @@ namespace WebsiteBanHang.Models
             this.BinhLuans = new HashSet<BinhLuan>();
             this.KhachHangs = new HashSet<KhachHang>();
         }
-    
+        [Key]
         public int MaThanhVien { get; set; }
         public string TaiKhoan { get; set; }
         public string MatKhau { get; set; }

@@ -11,9 +11,11 @@ namespace WebsiteBanHang.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class BinhLuan
     {
+        [Key]
         public int MaBL { get; set; }
         public string NoidungBL { get; set; }
         public Nullable<int> MaThanhVien { get; set; }

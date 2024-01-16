@@ -13,6 +13,7 @@ namespace WebsiteBanHang.Models     //phải cùng namespace với class trong M
     {
         internal sealed class SanPhamMetadata
         {
+          
             public int MaSP { get; set; }
 
             [DisplayName("Tên sản phẩm")]
