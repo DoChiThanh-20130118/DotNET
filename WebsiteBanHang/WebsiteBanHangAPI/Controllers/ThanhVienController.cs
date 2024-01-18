@@ -38,25 +38,52 @@ namespace WebsiteBanHangAPI.Controllers
             return thanhVien;
         }
 
-        // PUT: api/ThanhVien/5
-        [HttpPut("{id}")]
-        public IActionResult PutThanhVien(int id, ThanhVien thanhVien)
-        {
-            if (id != thanhVien.MaThanhVien)
-            {
-                return BadRequest();
-            }
+      // PUT: api/ThanhVien/5
+[HttpPut("{id}")]
+public IActionResult PutThanhVien(int id, ThanhVienDTO thanhVienDTO)
+{
+    var thanhVien = _context.ThanhViens.Find(id);
+    if (thanhVien == null)
+    {
+        return NotFound();
+    }
 
-            _context.Entry(thanhVien).State = EntityState.Modified;
-            _context.SaveChanges();
+    
+    thanhVien.TaiKhoan = thanhVienDTO.TaiKhoan;
+    thanhVien.MatKhau = thanhVienDTO.MatKhau;
+    thanhVien.HoTen = thanhVienDTO.HoTen;
+    thanhVien.DiaChi = thanhVienDTO.DiaChi;
+    thanhVien.Email = thanhVienDTO.Email;
+    thanhVien.SoDienThoai = thanhVienDTO.SoDienThoai;
+    thanhVien.CauHoi = thanhVienDTO.CauHoi;
+    thanhVien.CauTraLoi = thanhVienDTO.CauTraLoi;
+    thanhVien.MaLoaiTV = thanhVienDTO.MaLoaiTV;
 
-            return NoContent();
-        }
+    _context.Entry(thanhVien).State = EntityState.Modified;
+    _context.SaveChanges();
+
+    return NoContent();
+}
+
 
         // POST: api/ThanhVien
         [HttpPost]
-        public ActionResult<ThanhVien> PostThanhVien(ThanhVien thanhVien)
+        public ActionResult<ThanhVien> PostThanhVien(ThanhVienDTO thanhVienDTO)
         {
+            var thanhVien = new ThanhVien
+            {
+                TaiKhoan = thanhVienDTO.TaiKhoan,
+                MatKhau = thanhVienDTO.MatKhau,
+                HoTen = thanhVienDTO.HoTen,
+                DiaChi = thanhVienDTO.DiaChi,
+                Email = thanhVienDTO.Email,
+                SoDienThoai = thanhVienDTO.SoDienThoai,
+                CauHoi = thanhVienDTO.CauHoi,
+                CauTraLoi = thanhVienDTO.CauTraLoi,
+                MaLoaiTV = thanhVienDTO.MaLoaiTV
+
+
+            };
             _context.ThanhViens.Add(thanhVien);
             _context.SaveChanges();
 
