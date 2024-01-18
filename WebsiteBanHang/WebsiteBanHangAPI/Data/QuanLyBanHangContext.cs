@@ -23,6 +23,9 @@ namespace WebsiteBanHangAPI.Data
             modelBuilder.Entity<NhaSanXuat>().ToTable("NhaSanXuat");
             modelBuilder.Entity<PhieuNhap>().ToTable("PhieuNhap");
             modelBuilder.Entity<Quyen>().ToTable("Quyen");
+            modelBuilder.Entity<ThanhVien>().ToTable("ThanhVien");
+            modelBuilder.Entity<DonDatHang>().ToTable("DonDatHang");
+
 
         }
 
@@ -39,5 +42,7 @@ namespace WebsiteBanHangAPI.Data
         public virtual DbSet<PhieuNhap> PhieuNhaps { get; set; }
         public virtual DbSet<Quyen> Quyens { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
+        public virtual DbSet<ThanhVien> ThanhViens { get; set; }
+
     }
 }

@@ -12,6 +12,7 @@ namespace WebsiteBanHang.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class DonDatHang
     {
@@ -34,6 +35,8 @@ namespace WebsiteBanHang.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDonDatHang> ChiTietDonDatHangs { get; set; }
+
+        [ForeignKey("MaKH")]
         public virtual KhachHang KhachHang { get; set; }
     }
 }

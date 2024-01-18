@@ -12,6 +12,7 @@ namespace WebsiteBanHang.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class BinhLuan
     {
@@ -20,8 +21,13 @@ namespace WebsiteBanHang.Models
         public string NoidungBL { get; set; }
         public Nullable<int> MaThanhVien { get; set; }
         public Nullable<int> MaSP { get; set; }
-    
+
+        [ForeignKey("MaSP")]
+
         public virtual SanPham SanPham { get; set; }
+
+        [ForeignKey("MaThanhVien")]
+
         public virtual ThanhVien ThanhVien { get; set; }
     }
 }
