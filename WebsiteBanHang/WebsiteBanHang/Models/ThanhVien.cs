@@ -11,7 +11,9 @@ namespace WebsiteBanHang.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class ThanhVien
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,7 +22,7 @@ namespace WebsiteBanHang.Models
             this.BinhLuans = new HashSet<BinhLuan>();
             this.KhachHangs = new HashSet<KhachHang>();
         }
-    
+        [Key]
         public int MaThanhVien { get; set; }
         public string TaiKhoan { get; set; }
         public string MatKhau { get; set; }
@@ -36,6 +38,8 @@ namespace WebsiteBanHang.Models
         public virtual ICollection<BinhLuan> BinhLuans { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KhachHang> KhachHangs { get; set; }
+
+        [ForeignKey("MaLoaiTV")]
         public virtual LoaiThanhVien LoaiThanhVien { get; set; }
     }
 }

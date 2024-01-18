@@ -11,7 +11,8 @@ namespace WebsiteBanHang.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class LoaiSanPham
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,7 @@ namespace WebsiteBanHang.Models
         {
             this.SanPhams = new HashSet<SanPham>();
         }
-    
+        [Key]
         public int MaLoaiSP { get; set; }
         public string TenLoai { get; set; }
         public string Icon { get; set; }

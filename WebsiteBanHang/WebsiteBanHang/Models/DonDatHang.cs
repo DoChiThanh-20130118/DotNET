@@ -11,7 +11,9 @@ namespace WebsiteBanHang.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class DonDatHang
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +21,8 @@ namespace WebsiteBanHang.Models
         {
             this.ChiTietDonDatHangs = new HashSet<ChiTietDonDatHang>();
         }
-    
+
+        [Key]
         public int MaDDH { get; set; }
         public Nullable<System.DateTime> NgayDat { get; set; }
         public Nullable<bool> TinhTrangGiaoHang { get; set; }
@@ -32,6 +35,8 @@ namespace WebsiteBanHang.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDonDatHang> ChiTietDonDatHangs { get; set; }
+
+        [ForeignKey("MaKH")]
         public virtual KhachHang KhachHang { get; set; }
     }
 }

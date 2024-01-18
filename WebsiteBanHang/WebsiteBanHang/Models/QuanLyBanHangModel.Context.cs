@@ -19,7 +19,8 @@ namespace WebsiteBanHang.Models
             : base("name=QuanLyBanHangEntities")
         {
         }
-    
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

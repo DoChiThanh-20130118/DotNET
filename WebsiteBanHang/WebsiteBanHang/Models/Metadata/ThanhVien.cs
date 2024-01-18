@@ -13,6 +13,7 @@ namespace WebsiteBanHang.Models         //phải cùng namespace với class tro
     {
         internal sealed class ThanhVienMetadata
         {
+          
             public int MaThanhVien { get; set; }
 
             [DisplayName("Tài khoản")]

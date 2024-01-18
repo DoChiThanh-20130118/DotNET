@@ -12,6 +12,7 @@ namespace WebsiteBanHang.Controllers
         QuanLyBanHangEntities db = new QuanLyBanHangEntities();
 
         //Hiển thị icon giỏ hàng lên phần header
+      
         public ActionResult GioHangPartial()
         {
             if (TinhTongSoLuong() == 0) //ktra soluong giỏ hàng
@@ -65,7 +66,7 @@ namespace WebsiteBanHang.Controllers
         }
         
         // GET: GioHang
-        //Trang xem giỏ hàng
+        //Trang xem giỏ hàng --> PAGE
         public ActionResult XemGioHang()
         {
             //lấy giỏ hàng đã đc tạo
@@ -77,6 +78,7 @@ namespace WebsiteBanHang.Controllers
         }
 
         //chỉnh sửa giỏ hàng
+        // Trang Sửa Giỏ hàng --> PAGE
         [HttpGet]
         public ActionResult SuaGioHang(int MaSP)
         {
@@ -86,7 +88,7 @@ namespace WebsiteBanHang.Controllers
                 return RedirectToAction("Index", "Home");   //quay về trang chủ
             }
             //ktra sp có tồn tại trong csdl ko
-            SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == MaSP);
+            SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == MaSP); // LinQ
             if (sp == null)
             {
                 //Trang đường dẫn ko hợp lệ

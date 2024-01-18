@@ -11,14 +11,19 @@ namespace WebsiteBanHang.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class LoaiThanhVien_Quyen
     {
+        [Key]
         public int MaLoaiTV { get; set; }
         public string MaQuyen { get; set; }
         public string GhiChu { get; set; }
-    
+
+        [ForeignKey("MaLoaiTV")]
         public virtual LoaiThanhVien LoaiThanhVien { get; set; }
+        [ForeignKey("MaQuyen")]
         public virtual Quyen Quyen { get; set; }
     }
 }
